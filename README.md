@@ -5,6 +5,12 @@
 Olá Ayres! Neste Readme vamos descrever o que a nossa
 search engine tem  de diferente do que fizemos em aula!
 
+Fizemos algumas alterações no repo desde a data de entrega, mas sem nenhuma alteração no código.
+Segue abaixo o commit de entrega:
+
+https://github.com/hugosoftdev/maquina_de_busca/commit/6227c77a61aca411ebe77bbb697832a16955e468
+
+
 ## Entedimento da Query
 
 Diferentemente do que fizemos em aula, a intenção não era criar uma maquina de busca para queries booleanas, e sim parsear uma query "livre", ou seja, o usuário escreve o que quiser e o algoritmo por trás tenta entender minimamente a inteção de busca.
