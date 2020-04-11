@@ -30,11 +30,12 @@ Utilizando o modelo de NER do <strong>spaCy</strong> identifica-se o elemento "N
 Com base na premissa de que as principais informações da pesquisa concentram-se nos substantivos e nos verbos, e em sequencia nos advérbios e adjetivos. Então neste caso o parsing dessa query nos retornaria a seguinte estrutura:
 
 Main Elements: "New York"
+
 Intersting Elements: ("street",2), ("get",2), ("beautiful",1), ("how",1)
 
-Agora temos os principais elementos da pesquisa acompanhados de seus respectivos pesos, isso será importante mais para frente na hora do ranking dos resultados. Caso o algortimo de NER não ache nenhum elemento, o que é considerado como Main Elements são os substantivos e verbos, e caso o modelo de POS não ache nenhum substantivo ou verbo no texto o main elements se torna um simples `word_tokenize` da query, ou seja, se não conseguimos entender o que são os principais elementos, vamos assumir que todos são igualmente importantes.
+Agora temos os principais elementos da pesquisa acompanhados de seus respectivos pesos, isso será importante mais para frente na hora do ranking dos resultados. Caso o algortimo de NER não ache nenhuma entidade, o que é considerado como Main Elements são os substantivos e verbos, e caso o modelo de POS não ache nenhum substantivo ou verbo no texto o main elements se torna um simples `word_tokenize` da query, ou seja, se não conseguimos entender o que são os principais elementos, vamos assumir que todos são igualmente importantes.
 
-### Criação da Repositório e do Index
+### Criação do Repositório e do Index
 
 Assim como no entendimento da query, construímos em aula um repositório e index que consideravam as palavras de forma individual, se quiséssemos buscar pelos documentos com o termo "New York" teríamos que buscar isoladamente no index as chaves "New" e "York" e ainda salvar junto a informação de cada documento em qual index aquela palavra apareceu para enfim sabermos se era o termo "New York". Assim como no entendimento da query, decimos aplicar <strong>NER</strong>
 para resolver este problema. Além de fazermos o `word_tokenize` do conteúdo de cada documento na hora de construírmos o repositório, adicionamos também quais as principais entidades de nome composto que foram reconhecidas no texto entre a lista de tokens. Veja abaixo:
@@ -77,7 +78,7 @@ Vem acompanhada da sugestão:
 
 Caso você selecione sim, o programa passa a considerar que a query inicial é igual à query sugerida, caso selecione não continua-se a busca com a query inicial.
 
-O diferencial de ter construído um index com algumas entidades de nome composto também surte efeito nessa sujestão, <strong> pois a sugestão passa a ser a correção do termo e não de cada palavra isoladamente </strong>.
+O diferencial de ter construído um index com algumas entidades de nome composto também surte efeito nessa sugestão, <strong> pois a sugestão passa a ser a correção do termo e não de cada palavra isoladamente </strong>.
 
 ### Busca e Ranking
 
@@ -113,3 +114,8 @@ Ordem de execução dos scripts:
 ### Considerações
 
 O campo de máquina de busca é simplesmente um universo gigantesco cheio de técnicas para serem estudadas. Muitas melhorias poderiam ser aplicadas nesse projeto, mas desenvolvemos o que foi possível dentro do prazo estipulado alcançando um resultado satisfatório para dupla. A intenção é que seja um script genérico e que funcione para QUALQUER CORPUS, desde que seguindo a estrutura do corpus utilizado neste projeto. Como melhoria de uso do programa em si, colocaríamos como um próximo passo tornar o nome dos arquivos do corpus, index e repositório argumentos da linha de comando, assim como a quantidade máxima de resultado a serem retornados na busca. Por hora, isso deve ser alterado dentro do código.
+
+
+### Happy Searching!!
+
+---
